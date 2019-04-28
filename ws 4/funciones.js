@@ -1,35 +1,29 @@
-function ejercicio3(msj){
-	document.write(msj);
-}
-function ejercicio4(a,b){
-	document.write("el valor del primer numero es:"+a+"<br>");
-	document.write("el valor del segundo numero es:"+b+"<br>");
-	var sum=a+b;
-	var mul=a*b;
-	var res=a-b;
-	var div=a/b;
-	document.write("la suma de los dos numero es:"+sum+"<br>");
-	document.write("la resta de los dos numeros es:"+res+"<br>");
-	document.write("el multipricacion de los dos numeros es:"+mul+"<br>");
-	document.write("la division de los dos numeros es:"+div+"<br>");
-}
-function ejercicio5(){
-	var a=prompt("elije primer numero:");
-	var b=prompt("elije otro numero:");
-	var mul=a*b;
-	var sum=a.valueOf()+b.valueOf();
-	var res=a-b;
-	var div=a/b;
-	document.write("el valor del primer numero es:"+a+"<br>");
-	document.write("el valor del segundo numero es:"+b+"<br>");
-	document.write("la suma de los dos numero es:"+sum+"<br>");
-	document.write("la resta de los dos numeros es:"+res+"<br>");
-	document.write("el multipricacion de los dos numeros es:"+mul+"<br>");
-	document.write("la division de los dos numeros es:"+div+"<br>");
-}
-//ejercicio 3
-//ejercicio3("hola mundo!<br/> que facil es poner 'comillas simples'<br/> y "+'"comillas dobles"');
-//ejercicio 4
-//ejercicio4(6,2);
-//ejercicio 5
-ejercicio5();
+google.charts.load('current', {
+        'packages':['geochart'],
+        // Note: you will need to get a mapsApiKey for your project.
+        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+        'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+      });
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+          ['pais', 'mll turistas'],
+          ['france', 869],
+          ['spain', 818],
+          ['EEUU', 759],
+          ['china', 607],
+          ['italy', 583],
+          ['mexico', 393],
+		  ['RU', 377],
+		  ['turkey', 376],
+		  ['germany', 375],
+		  ['thailand', 354]
+        ]);
+
+        var options = {};
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        chart.draw(data, options);
+      }
